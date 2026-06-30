@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   printf("$ ");
   scanf("%s", command);
   getchar();
-  printf("%s: %s not found", command, command);
+  printf("%s: command not found", command);
 
   return 0;
 }
