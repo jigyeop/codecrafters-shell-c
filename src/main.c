@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
 	
-  char comman[100];
+  char command[100];
 
   printf("$ ");
   scanf("%s", command);
