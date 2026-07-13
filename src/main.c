@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 	if (command == "exit") {
-		break;
+		return 0;
 	}
 	printf("%s: command not found\n", command);
   }
