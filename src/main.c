@@ -7,10 +7,12 @@ int main(int argc, char *argv[]) {
 	
   char command[100];
 
-  printf("$ ");
-  scanf("%s", command);
-  getchar();
-  printf("%s: command not found", command);
+  while(1) {
+    printf("$ ");
+    scanf("%s", command);
+    getchar();
+    printf("%s: command not found", command);
+  }
 
   return 0;
 }
