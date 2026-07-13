@@ -8,10 +8,10 @@ int main(int argc, char *argv[]) {
   char command[100];
 
   while(1) {
-    printf("$ ");
+    printf("$");
     scanf("%s", command);
     getchar();
-    printf("%s: command not found", command);
+    printf("%s: command not found\n", command);
   }
 
   return 0;
