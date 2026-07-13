@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
@@ -11,8 +12,8 @@ int main(int argc, char *argv[]) {
 	printf("$ ");
 	scanf("%s", command);
 	getchar();
-	if (command == "exit") {
-		return 0;
+	if (!(strcmp(command, "exit"))) {
+		break;	
 	}
 	printf("%s: command not found\n", command);
   }
