@@ -25,7 +25,10 @@ int main(int argc, char *argv[]) {
 		}
 		printf("\n");
 	}
-  }
+
+	else {
+		printf("%s is an unknown command.\n", command);
+  	}
 
   return 0;
 }
