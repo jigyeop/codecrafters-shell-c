@@ -25,10 +25,6 @@ int main(int argc, char *argv[]) {
 		}
 		printf("\n");
 	}
-
-	else {	
-		printf("%s: command not found\n", command);
-	}
   }
 
   return 0;
