@@ -22,7 +22,8 @@ int main(int argc, char *argv[]) {
 		while((c = getchar()) != EOF) {
 			putchar(c);
 		}
-		printf("\n");	
+		printf("\n");
+	}	
 		
 	printf("%s: command not found\n", command);
   }
