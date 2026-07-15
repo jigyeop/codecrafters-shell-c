@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	else {
-		printf("%s is an unknown command.\n", command);
+		printf("%s: command not found\n", command);
   	}
   }
 
