@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 	else if (!(strcmp(command, "echo"))) {
 		int c;
-		while((c = getchar()) != EOF) {
+		while((c = getchar()) != '\n' && c !=  EOF) {
 			putchar(c);
 		}
 		printf("\n");
