@@ -17,15 +17,18 @@ int main(int argc, char *argv[]) {
 	if (!(strcmp(command, "exit"))) {
 		break;	
 	}
+
 	else if (!(strcmp(command, "echo"))) {
 		int c;
 		while((c = getchar()) != EOF) {
 			putchar(c);
 		}
 		printf("\n");
-	}	
-		
-	printf("%s: command not found\n", command);
+	}
+
+	else {	
+		printf("%s: command not found\n", command);
+	}
   }
 
   return 0;
