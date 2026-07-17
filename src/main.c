@@ -7,12 +7,28 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
   
   char command[100];
+  char builtins[100][3] = {"echo", "exit", "type"};
 
   while(1) {
 
 	printf("$ ");
 	scanf("%s", command);
 	getchar();
+
+	if (!(strcmp(command, "type"))) {
+		scanf("%s", command);
+		getchar();
+		for (int i = 0; i < 3; i++) {
+			if (!(strmp(command, builtins[100][i]))) {
+				printf("%s is a shell builtin\n", builtins[100][i]);
+				break;
+			}
+		}
+	}
+	
+	else {
+		printf("%s: not found\n", command);
+	}	
 
 	if (!(strcmp(command, "exit"))) {
 		break;	
