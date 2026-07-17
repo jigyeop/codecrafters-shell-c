@@ -24,7 +24,6 @@ int main(int argc, char *argv[]) {
 			if (!(strcmp(command, builtins[i]))) {
 				printf("%s is a shell builtin\n", builtins[i]);
 				flag = 1;
-				break;
 			}
 		}
 
