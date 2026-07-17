@@ -7,7 +7,8 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
   
   char command[100];
-  char builtins[100][3] = {"echo", "exit", "type"};
+  const char *builtins[] = {"echo", "exit", "type"};
+  int size = sizeof(builtins) / sizeof(builtins[0]);
 
   while(1) {
 
@@ -18,9 +19,9 @@ int main(int argc, char *argv[]) {
 	if (!(strcmp(command, "type"))) {
 		scanf("%s", command);
 		getchar();
-		for (int i = 0; i < 3; i++) {
-			if (!(strmp(command, builtins[100][i]))) {
-				printf("%s is a shell builtin\n", builtins[100][i]);
+		for (int i = 0; i < size; i++) {
+			if (!(strcmp(command, builtins[i]))) {
+				printf("%s is a shell builtin\n", builtins[i]);
 				break;
 			}
 		}
