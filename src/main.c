@@ -16,7 +16,20 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 
-	if (!(strcmp(command, "type"))) {
+
+	if (!(strcmp(command, "exit"))) {
+		break;
+	}
+
+	else if (!(strcmp(command, "echo"))) {
+		int c;
+		while((c = getchar()) != '\n' && c != EOF) {
+			putchar(c);
+		}
+		printf("\n");
+	}
+
+	else if (!(strcmp(command, "type"))) {
 		int flag = 0;
 		scanf("%s", command);
 		getchar();
@@ -30,19 +43,6 @@ int main(int argc, char *argv[]) {
 		if (flag != 1) {
 			printf("%s: not found", command);
 		}
-	}
-
-	if (!(strcmp(command, "exit"))) {
-		break;	
-	}
-
-	else if (!(strcmp(command, "echo"))) {
-		int c;
-		while((c = getchar()) != '\n' && c !=  EOF) {
-			putchar(c);
-		}
-		printf("\n");
-	}
 
 	else {
 		printf("%s: command not found\n", command);
