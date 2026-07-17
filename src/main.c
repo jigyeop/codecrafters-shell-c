@@ -16,7 +16,6 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 
-
 	if (!(strcmp(command, "exit"))) {
 		break;
 	}
@@ -43,6 +42,7 @@ int main(int argc, char *argv[]) {
 		if (flag != 1) {
 			printf("%s: not found", command);
 		}
+	}
 
 	else {
 		printf("%s: command not found\n", command);
