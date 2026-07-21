@@ -38,6 +38,8 @@ int main(int argc, char *argv[]) {
 		if (flag != 1) {
 			printf("%s: not found");
 		}
+
+	}
 			
 
 	else if (!(strcmp(command, "exit"))) {
