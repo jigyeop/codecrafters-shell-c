@@ -50,25 +50,17 @@ int main(int argc, char *argv[]) {
 				printf("%s: not found\n", command);
 				break;
 			}
+	}	else if (!(strcmp(command, "exit"))) {
+			break;
+		}	else if (!(strcmp(command, "echo"))) {
+				int c;
+				while((c = getchar()) != '\n' && c != EOF) {
+					putchar(c);
+			}
+			printf("\n");
+			}	else {
+					printf("%s: command not found\n", command);
+  				}
 	}
-			
-	else if (!(strcmp(command, "exit"))) {
-		break;
-	}
-
-	else if (!(strcmp(command, "echo"))) {
-		int c;
-		while((c = getchar()) != '\n' && c != EOF) {
-			putchar(c);
-		}
-		printf("\n");
-	}
-
-	else {
-		printf("%s: command not found\n", command);
-  	}
-	}
-}
-
-  return 0;
+  		return 0;
 }
