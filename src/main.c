@@ -44,11 +44,12 @@ int main(int argc, char *argv[]) {
 					printf("%s is %s", command, full_path);
 					flag = 1;
 					break;
+					}
 				}
-			}
 				dir = strtok(NULL, ":");
+			}
+			free(path_copy);
 		}
-		free(path_copy);
 
 			if (flag != 1) {
 				printf("%s: not found\n", command);
