@@ -8,7 +8,8 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
   
   char command[100];
-  const char *builtins[] = {"echo", "exit", "type"}, *path = getenv("PATH");
+  const char *builtins[] = {"echo", "exit", "type"};
+  char *path = getenv("PATH");
   int size = sizeof(builtins) / sizeof(builtins[0]);
 
   while(1) {
@@ -25,7 +26,7 @@ int main(int argc, char *argv[]) {
 		*dir = strcat(dir, "/");
 		while(dir != NULL) {
 			if (access(strcat(dir, command)), F_OK) {
-				if (access(strcat(dir, command), X_OR)) {
+				if (access(strcat(dir, command), X_OK)) {
 					printf("%s is %s", command, dir);
 					flag = 1;
 					break;
