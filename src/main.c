@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
   
   char command[100];
-  const char *builtins[] = {"echo", "exit", "type"}, *path = get_env("PATH");
+  const char *builtins[] = {"echo", "exit", "type"}, *path = getenv("PATH");
   int size = sizeof(builtins) / sizeof(builtins[0]);
 
   while(1) {
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		scanf("%s", command);
 		getchar();
 		int flag = 0;
-		char *dir = strtok(*path, ":");
+		char *dir = strtok(path, ":");
 		*dir = strcat(dir, "/");
 		while(dir != NULL) {
 			if (access(strcat(dir, command)), F_OK) {
