@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
   
   char command[100];
-  const char *builtins[] = {"echo", "exit", "type"};
+  const char *builtins[] = {"echo", "exit", "type"}, *path = get_env("PATH");
   int size = sizeof(builtins) / sizeof(builtins[0]);
 
   while(1) {
@@ -16,7 +17,29 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 
-	if (!(strcmp(command, "exit"))) {
+	if (!(strcmp(command, "type"))) {
+		scanf("%s", command);
+		getchar();
+		int flag = 0;
+		char *dir = strtok(*path, ":");
+		*dir = strcat(dir, "/");
+		while(dir != NULL) {
+			if (access(strcat(dir, command)), F_OK) {
+				if (access(strcat(dir, command), X_OR)) {
+					printf("%s is %s", command, dir);
+					flag = 1;
+					break;
+				}
+			}
+			dir = strtok(NULL, ":");
+		}
+		
+		if (flag != 1) {
+			printf("%s: not found");
+		}
+			
+
+	else if (!(strcmp(command, "exit"))) {
 		break;
 	}
 
