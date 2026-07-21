@@ -23,10 +23,10 @@ int main(int argc, char *argv[]) {
 		getchar();
 		int flag = 0;
 		char *dir = strtok(path, ":");
-		*dir = strcat(dir, "/");
+		strcat(dir, "/");
 		while(dir != NULL) {
-			if (access(strcat(dir, command)), F_OK) {
-				if (access(strcat(dir, command), X_OK)) {
+			if (access(strcat(dir, command), F_OK) == 0) {
+				if (access(strcat(dir, command), X_OK) == 0) {
 					printf("%s is %s", command, dir);
 					flag = 1;
 					break;
