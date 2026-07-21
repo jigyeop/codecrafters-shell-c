@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
 					printf("%s is a shell builtin\n", builtins[i]);
 					flag = 1;
 					break;
+				}
 			}
 			if (!flag && path != NULL) {
 				char *path_copy = strdup(path);
@@ -45,14 +46,10 @@ int main(int argc, char *argv[]) {
 					dir = strtok(NULL, ":");
 				}
 			}
-
 			if (flag != 1) {
 				printf("%s: not found\n", command);
 				break;
 			}
-				
-		}
-
 	}
 			
 
