@@ -22,8 +22,6 @@ int main(int argc, char *argv[]) {
 		scanf("%s", command);
 		getchar();
 		int flag = 0;
-		char *dir = strtok(path, ":");
-		strcat(dir, "/");
 
 			for (int i = 0; i < size; i++) {
 				if (!(strcmp(command, builtins[i]))) {
