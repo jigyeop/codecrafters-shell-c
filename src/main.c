@@ -48,8 +48,6 @@ int main(int argc, char *argv[]) {
 				}
 				dir = strtok(NULL, ":");
 			}
-			free(path_copy);
-		}
 
 			if (flag != 1) {
 				printf("%s: not found\n", command);
