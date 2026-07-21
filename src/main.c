@@ -32,12 +32,20 @@ int main(int argc, char *argv[]) {
 					break;
 				}
 			}
-			dir = strtok(NULL, ":");
-		}
+				dir = strtok(NULL, ":");
+			}
+
+			for (int i = 0; i < size; i++) {
+				if (!(strcmp(command, builtins[i]))) {
+					printf("%s is a shell builtin\n", builtins[i]);
+					flag = 1;
+			}
+
 		
-		if (flag != 1) {
-			printf("%s: not found");
-			break;
+			if (flag != 1) {
+				printf("%s: not found\n", command);
+			}
+				
 		}
 
 	}
@@ -53,22 +61,6 @@ int main(int argc, char *argv[]) {
 			putchar(c);
 		}
 		printf("\n");
-	}
-
-	else if (!(strcmp(command, "type"))) {
-		int flag = 0;
-		scanf("%s", command);
-		getchar();
-		for (int i = 0; i < size; i++) {
-			if (!(strcmp(command, builtins[i]))) {
-				printf("%s is a shell builtin\n", builtins[i]);
-				flag = 1;
-			}
-		}
-
-		if (flag != 1) {
-			printf("%s: not found\n", command);
-		}
 	}
 
 	else {
