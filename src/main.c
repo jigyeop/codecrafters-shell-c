@@ -52,7 +52,6 @@ int main(int argc, char *argv[]) {
 			}
 	}
 			
-
 	else if (!(strcmp(command, "exit"))) {
 		break;
 	}
