@@ -31,7 +31,6 @@ int main(int argc, char *argv[]) {
 					flag = 1;
 					break;
 			}
-			printf("%s", path);	
 			if (!flag && path != NULL) {
 				char *path_copy = strdup(path);
 				char *dir = strtok(path_copy, ":");
