@@ -41,12 +41,12 @@ int main(int argc, char *argv[]) {
 					snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 					
 					if (access(full_path, F_OK | X_OK) == 0) {
-					printf("%s is %s", command, full_path);
-					flag = 1;
-					break;
+						printf("%s is %s", command, full_path);
+						flag = 1;
+						break;
 					}
+					dir = strtok(NULL, ":");
 				}
-				dir = strtok(NULL, ":");
 			}
 
 			if (flag != 1) {
