@@ -18,7 +18,19 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 
-	if (!(strcmp(command, "type")) || !(access(command, X_OK))) {
+	if (path != NULL) {
+		char *path_copy = strdup(path);
+		char *dir = trtok(path_copy, ":");
+
+		while(dir != NULL) {
+			char full_path[1024];
+			snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
+
+			if (!(access(full_path, X_OK)) {
+					system(command);
+			}
+
+	if (!(strcmp(command, "type"))) {
 		scanf("%s", command);
 		getchar();
 		int flag = 0;
@@ -39,7 +51,6 @@ int main(int argc, char *argv[]) {
 					snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 					
 					if (access(full_path, F_OK | X_OK) == 0) {
-						system(command);
 						printf("%s is %s\n", command, full_path);
 						flag = 1;
 						break;
