@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
 
 			if (!(access(full_path, X_OK))) {
 				system(command);
+				break;
 			}
 		}
 	}
