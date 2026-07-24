@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 					if (access(full_path, F_OK | X_OK) == 0) {
 						printf("%s is %s\n", command, full_path);
 						flag = 1;
+						system(command);
 						break;
 					}
 					dir = strtok(NULL, ":");
