@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 					snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 					
 					if (access(full_path, F_OK | X_OK) == 0) {
-						system(command);
+						system(full_path);
 						printf("%s is %s\n", command, full_path);
 						flag = 1;
 						break;
