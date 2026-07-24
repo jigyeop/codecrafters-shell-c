@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 			snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 
 			if (!(access(full_path, X_OK))) {
-					system(command);
+				system(command);
 			}
 		}
 
