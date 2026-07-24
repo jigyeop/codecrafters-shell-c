@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 	scanf("%s", command);
 	getchar();
 
-	if (!(strcmp(command, "type"))) {
+	if (!(strcmp(command, "type")) || !(access(command, X_OK))) {
 		scanf("%s", command);
 		getchar();
 		int flag = 0;
@@ -45,7 +45,6 @@ int main(int argc, char *argv[]) {
 					}
 					dir = strtok(NULL, ":");
 				}
-				system(command);
 			}
 			if (flag != 1) {
 				printf("%s: not found\n", command);
