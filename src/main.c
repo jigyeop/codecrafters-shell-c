@@ -20,13 +20,13 @@ int main(int argc, char *argv[]) {
 
 	if (path != NULL) {
 		char *path_copy = strdup(path);
-		char *dir = trtok(path_copy, ":");
+		char *dir = srtok(path_copy, ":");
 
 		while(dir != NULL) {
 			char full_path[1024];
 			snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 
-			if (!(access(full_path, X_OK)) {
+			if (!(access(full_path, X_OK))) {
 					system(command);
 			}
 
