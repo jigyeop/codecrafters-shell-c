@@ -37,14 +37,9 @@ int main(int argc, char *argv[]) {
 				while(dir != NULL) {
 					char full_path[1024];
 					snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
-
-					if (access(full_path, X_OK) == 0) {
-						system(command);
-						flag = 1;
-						break;
-					}
 					
 					if (access(full_path, F_OK | X_OK) == 0) {
+						system(command);
 						printf("%s is %s\n", command, full_path);
 						flag = 1;
 						break;
