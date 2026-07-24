@@ -22,15 +22,12 @@ int main(int argc, char *argv[]) {
 		char *path_copy = strdup(path);
 		char *dir = strtok(path_copy, ":");
 
-		while(dir != NULL) {
 			char full_path[1024];
 			snprintf(full_path, sizeof(full_path), "%s/%s", dir, command);
 
 			if (!(access(full_path, X_OK))) {
 				system(command);
-				break;
 			}
-		}
 	}
 
 	if (!(strcmp(command, "type"))) {
