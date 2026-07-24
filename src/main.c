@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 				system(command);
 			}
 		}
+	}
 
 	if (!(strcmp(command, "type"))) {
 		scanf("%s", command);
