@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 
 	if (path != NULL) {
 		char *path_copy = strdup(path);
-		char *dir = srtok(path_copy, ":");
+		char *dir = strtok(path_copy, ":");
 
 		while(dir != NULL) {
 			char full_path[1024];
