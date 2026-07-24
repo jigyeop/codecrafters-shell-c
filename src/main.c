@@ -45,10 +45,7 @@ int main(int argc, char *argv[]) {
 					}
 					dir = strtok(NULL, ":");
 				}
-
-				if (access(full_path, X_OK) == 0) {
-					system(command);
-				}
+				system(command);
 			}
 			if (flag != 1) {
 				printf("%s: not found\n", command);
