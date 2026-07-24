@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 					dir = strtok(NULL, ":");
 				}
 
-				if (access(full_path, X_OR) == 0) {
+				if (access(full_path, X_OK) == 0) {
 					system(command);
 				}
 			}
