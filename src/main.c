@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void prompt(); 
+void prompt();
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
-	
+
+  char command[1024];
 
   prompt();
 
