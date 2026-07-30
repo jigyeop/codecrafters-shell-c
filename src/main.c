@@ -19,13 +19,11 @@ void prompt() {
 	size_t size = 0;
 	
 	printf("$ ");
-	
+
 	getline(&command, &size, stdin);
-
 	command[strcspn(command, "\n")] = '\0';
-
-	printf("%s: command not found", command);
-
+	printf("%s: command not found\n", command);
+	
 	free(command);
 
 }
