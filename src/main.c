@@ -34,6 +34,7 @@ int shell() {
 		printf("%s\n", command + size);
 		free(command);
 		return 1;
+	}
 
 	printf("%s: command not found\n", command);
 	
