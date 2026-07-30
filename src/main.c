@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
 
   prompt();
+  printf("%s : command not found", command);
 
   return 0;
 }
@@ -17,7 +18,6 @@ void prompt() {
 	size_t size = 0;
 	printf("$ ");
 	getline(&command, &size, stdin);
-	printf("%s: command  not found\n", command);
 	free(command);
 
 }
