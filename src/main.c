@@ -7,7 +7,9 @@ void prompt();
 int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
 
-  prompt();
+  while(1) {
+  	prompt();
+  }
   
   return 0;
 }
