@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void prompt();
+ int prompt();
 
 int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-void prompt() {
+int prompt() {
 	char *command = NULL;
 	size_t size = 0;
 	
