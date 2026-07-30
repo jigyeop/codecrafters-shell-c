@@ -23,6 +23,7 @@ void allocate() {
 	char *command = NULL;
 	size_t size = 0;
 	getline(&command, &size, stdin);
+	printf("%s: command not found", command);
 	free(command);
 }
 
