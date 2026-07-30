@@ -20,7 +20,7 @@ void prompt() {
 	
 	getline(&command, &size, stdin);
 
-	command[strcpn(command, '\n')] = '\0';
+	command[strcspn(command, '\n')] = '\0';
 
 	printf("%s: command not found", command);
 
