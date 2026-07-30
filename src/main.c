@@ -23,7 +23,7 @@ int shell() {
 	printf("$ ");
 
 	getline(&command, &size, stdin);
-	command[strcspn(command, " ")] = '\0';
+	command[strcspn(command, "\ ")] = '\0';
 
 	if (!strcmp("exit", command)) {
 		free(command);
