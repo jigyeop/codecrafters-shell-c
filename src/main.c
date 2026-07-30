@@ -8,7 +8,9 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
 
   while(1) {
-  	prompt();
+	  if (!prompt()) {
+		  break;
+	  }
   }
   
   return 0;
@@ -24,11 +26,13 @@ void prompt() {
 	command[strcspn(command, "\n")] = '\0';
 
 	if (!strcmp("exit", command)) {
-		break;
+		free(command);
+		return 0;
 	}
 
 	printf("%s: command not found\n", command);
 	
 	free(command);
+	return 1;
 }
 
