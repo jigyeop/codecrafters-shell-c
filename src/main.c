@@ -3,18 +3,14 @@
 #include <string.h>
 
 void prompt();
+void allocate();
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
 
-  char command[1024];
-
   prompt();
-
-  fgets(command, sizeof(command), stdin);
-  command[strcspn(command, "\n")] = '\0';
-  printf("%s: command not found", command);
+  allocate();
 
   return 0;
 }
@@ -22,3 +18,11 @@ int main(int argc, char *argv[]) {
 void prompt() {
 	printf("$ ");
 }
+
+void allocate() {
+	char *command = NULL;
+	size_t size = 0;
+	getline(&command, &size, stdin);
+	free(command);
+}
+
