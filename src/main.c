@@ -22,9 +22,13 @@ void prompt() {
 
 	getline(&command, &size, stdin);
 	command[strcspn(command, "\n")] = '\0';
+
+	if (!strcmp("exit", command)) {
+		break;
+	}
+
 	printf("%s: command not found\n", command);
 	
 	free(command);
-
 }
 
