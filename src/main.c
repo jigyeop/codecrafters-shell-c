@@ -46,12 +46,14 @@ int shell() {
 				ptr += strspn(ptr, ws);
 				size_t t_spc = strcspn(ptr, ws);
 				for (int i = 0; i < num_builtins; i++) {
+					int flag = 0;
 					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
 						printf("%.*s is a shell builtin\n", (int)t_spc, ptr);
-						return 1;
+						flag = 1;
 					}
 				}
-				printf("%.*s: not found\n", (int)t_spc, ptr);
+				
+				if (!flag) printf("%.*s: not found\n", (int)t_spc, ptr);
 				break;
 			}
 
