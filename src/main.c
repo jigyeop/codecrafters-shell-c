@@ -36,7 +36,7 @@ int shell() {
 			if (strncmp(ptr, "echo", spc) == 0 && "echo"[spc] == '\0') {
 				ptr += spc;
 				ptr += strspn(ptr, ws);	
-				size_t arg = strcspn(ptr, "\n");
+				size_t arg = strspn(ptr, "\n");
 				printf("%.*s\n", (int)arg, ptr);
 				break;
 			}
