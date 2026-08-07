@@ -30,7 +30,7 @@ int shell() {
 
 			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
 				ptr += spc;
-				ptr += strcspn(ptr, ws);
+				ptr += strspn(ptr, ws);
 				size_t t_spc = strcspn(ptr, ws);
 				for (int i = 0; i < num_builtins; i++) {
 					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
