@@ -38,6 +38,11 @@ int shell() {
 				printf("%.*s\n", (int)arg, ptr);
 				break;
 			}
+
+			if (spc > 0) {
+				printf("%.*s: command not found\n", (int)spc, ptr);
+				break;
+			}
 			ptr += spc;
 			ptr += strspn(ptr, ws);
 		}
