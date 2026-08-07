@@ -2,16 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-int shell();
+void shell();
 
 int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
 
-  while(1) {
-	  if (!shell()) {
-		  break;
-	  }
-  }
+  shell();
   
   return 0;
 }
@@ -19,26 +15,32 @@ int main(int argc, char *argv[]) {
 int shell() {
 	char *command = NULL;
 	size_t size = 0;
+	const char *ws = "\t\n\r\f\v";
+	const char *ptr = command;
 	
-	printf("$ ");
+	while(1) {
+		printf("$ ");
+		getline(&command, &size, stdin);
+		ptr = command;
 
-	getline(&command, &size, stdin);
-	command[strcspn(command, "\x20")] = '\0';
-
-	if (!strcmp("exit", command)) {
-		free(command);
-		return 0;
+		while(*ptr != '\0') {
+			size_t spc = strcspn(ptr, ws);
+			
+			if (spc == strlen("exit") && strncmp(ptr, "exit", spc) == 0) {
+				free(command);
+				break;
+			}
+			
+			if (spc == strlen("echo") && strncmp(ptr, "echo", spc) == 0) {
+				ptr += spc;
+				ptr += strspn(ptr, ws);	
+				size_t arg = strcspn(ptr, "\n");
+				printf("%.*s\n", (int)arg, ptr);
+					
+			}
+			ptr += spc;
+		}
 	}
-
-	if (!strcmp("echo", command)) {
-		printf("%s\n", command + size);
 		free(command);
-		return 1;
-	}
-
-	printf("%s: command not found\n", command);
-	
-	free(command);
-	return 1;
 }
 
