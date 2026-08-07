@@ -26,17 +26,21 @@ int shell() {
 		while(*ptr != '\0') {
 			size_t spc = strcspn(ptr, ws);
 			
-			if (spc == strlen("exit") && strncmp(ptr, "exit", spc) == 0) {
+			if (strncmp(ptr, "exit", spc) == 0 && "exit"[spc] == '\0') {
 				free(command);
 				return 1;
 			}
 			
-			if (spc == strlen("echo") && strncmp(ptr, "echo", spc) == 0) {
+			if (strncmp(ptr, "echo", spc) == 0 && "echo"[spc] == '\0') {
 				ptr += spc;
 				ptr += strspn(ptr, ws);	
 				size_t arg = strcspn(ptr, "\n");
 				printf("%.*s\n", (int)arg, ptr);
 				break;
+			}
+
+			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
+				// handle type
 			}
 
 			if (spc > 0) {
