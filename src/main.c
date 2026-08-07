@@ -48,10 +48,10 @@ int shell() {
 				for (int i = 0; i < num_builtins; i++) {
 					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
 						printf("%.*s is a shell builtin\n", (int)t_spc, ptr);
-						break;
+						return 1;
 					}
 				}
-				printf("%.*s: invalid command\n", (int)t_spc, ptr);
+				printf("%.*s: not found\n", (int)t_spc, ptr);
 				break;
 			}
 
