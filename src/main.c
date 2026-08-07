@@ -16,7 +16,7 @@ int shell() {
 	char *command = NULL;
 	size_t size = 0;
 	const char *ws = " \t\n\r\f\v";
-	const char *ptr = command;
+	const char *ptr;
 	
 	while(1) {
 		printf("$ ");
