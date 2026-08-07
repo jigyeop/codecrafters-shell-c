@@ -37,7 +37,6 @@ int shell() {
 				size_t arg = strcspn(ptr, "\n");
 				printf("%.*s\n", (int)arg, ptr);
 				break;
-					
 			}
 			ptr += spc;
 			ptr += strspn(ptr, ws);
