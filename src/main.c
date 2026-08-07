@@ -39,7 +39,7 @@ int shell() {
 					
 			}
 			ptr += spc;
-			ptr = strspn(ptr, ws);
+			ptr += strspn(ptr, ws);
 		}
 	}
 		free(command);
