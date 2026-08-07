@@ -13,6 +13,8 @@ int main(int argc, char *argv[]) {
 }
 
 int shell() {
+	const char *builtins[] = {"exit", "echo", "type"};
+	const size_t num_builtins = sizeof(builtins) / sizeof(builtins[0]);
 	char *command = NULL;
 	size_t size = 0;
 	const char *ws = " \t\n\r\f\v";
