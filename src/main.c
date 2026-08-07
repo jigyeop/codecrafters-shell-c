@@ -42,7 +42,11 @@ int shell() {
 			}
 
 			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
-				// handle type
+				for (int i = 0; i < num_builtins; i++) {
+					if (strcmp(ptr, builtins[i]) == 0) {
+						printf("%.*s is a builtin", ptr);
+					}
+				}	
 			}
 
 			if (spc > 0) {
