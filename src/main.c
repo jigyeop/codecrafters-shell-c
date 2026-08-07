@@ -28,18 +28,6 @@ int shell() {
 		while(*ptr != '\0') {
 			size_t spc = strcspn(ptr, ws);
 
-			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
-				ptr += spc;
-				ptr += strspn(ptr, ws);
-				size_t t_spc = strcspn(ptr, ws);
-				for (int i = 0; i < num_builtins; i++) {
-					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
-						printf("%.*s is a shell builtin\n", (int)t_spc, ptr);
-					}
-				}
-				break;
-			}
-
 			if (strncmp(ptr, "exit", spc) == 0 && "exit"[spc] == '\0') {
 				free(command);
 				return 1;
@@ -51,6 +39,18 @@ int shell() {
 				size_t arg = strcspn(ptr, "\n");
 				printf("%.*s\n", (int)arg, ptr);
 				break;
+			}
+
+			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
+				ptr += spc;
+				ptr += strspn(ptr, ws);
+				size_t t_spc = strcspn(ptr, ws);
+				for (int i = 0; i < num_builtins; i++) {
+					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
+						printf("%.*s is a shell builtin\n", (int)t_spc, ptr);
+						break;
+					}
+				}
 			}
 
 			if (spc > 0) {
