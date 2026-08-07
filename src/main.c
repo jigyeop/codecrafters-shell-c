@@ -33,7 +33,7 @@ int shell() {
 				ptr += strcspn(ptr, ws);
 
 				for (int i = 0; i < num_builtins; i++) {
-					if (strcmp(ptr, builtins[i]) == 0) {
+					if (strncmp(ptr, builtins[i], spc) == 0) {
 						printf("%.*s is a builtin", (int)spc,  ptr);
 					}
 				}
