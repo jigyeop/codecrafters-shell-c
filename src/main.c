@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 int shell() {
 	char *command = NULL;
 	size_t size = 0;
-	const char *ws = "\t\n\r\f\v";
+	const char *ws = " \t\n\r\f\v";
 	const char *ptr = command;
 	
 	while(1) {
