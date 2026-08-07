@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int shell() {
+void shell() {
 	char *command = NULL;
 	size_t size = 0;
 	const char *ws = "\t\n\r\f\v";
