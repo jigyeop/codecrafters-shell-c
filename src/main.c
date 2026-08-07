@@ -35,15 +35,15 @@ int shell() {
 			
 			if (strncmp(ptr, "echo", spc) == 0 && "echo"[spc] == '\0') {
 				ptr += spc;
-				ptr += strspn(ptr, ws);	
-				size_t arg = strspn(ptr, "\n");
+				ptr += strcspn(ptr, ws);	
+				size_t arg = strcspn(ptr, "\n");
 				printf("%.*s\n", (int)arg, ptr);
 				break;
 			}
 
 			if (strncmp(ptr, "type", spc) == 0 && "type"[spc] == '\0') {
 				ptr += spc;
-				ptr += strcpn(ptr, ws);
+				ptr += strcspn(ptr, ws);
 
 				for (int i = 0; i < num_builtins; i++) {
 					if (strcmp(ptr, builtins[i]) == 0) {
