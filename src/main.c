@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void shell();
+int shell();
 
 int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-void shell() {
+int shell() {
 	char *command = NULL;
 	size_t size = 0;
 	const char *ws = "\t\n\r\f\v";
@@ -28,7 +28,7 @@ void shell() {
 			
 			if (spc == strlen("exit") && strncmp(ptr, "exit", spc) == 0) {
 				free(command);
-				break;
+				return 1;
 			}
 			
 			if (spc == strlen("echo") && strncmp(ptr, "echo", spc) == 0) {
@@ -39,6 +39,7 @@ void shell() {
 					
 			}
 			ptr += spc;
+			ptr = strspn(ptr, ws);
 		}
 	}
 		free(command);
