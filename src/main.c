@@ -51,6 +51,8 @@ int shell() {
 						break;
 					}
 				}
+				printf("%.*s: invalid command\n", (int)t_spc, ptr);
+				break;
 			}
 
 			if (spc > 0) {
