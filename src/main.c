@@ -34,9 +34,10 @@ int shell() {
 				size_t t_spc = strcspn(ptr, ws);
 				for (int i = 0; i < num_builtins; i++) {
 					if (strncmp(ptr, builtins[i], t_spc) == 0 && builtins[i][t_spc] == '\0') {
-						printf("%.*s is a builtin", (int)t_spc, ptr);
+						printf("%.*s is a shell builtin\n", (int)t_spc, ptr);
 					}
 				}
+				break;
 			}
 
 			if (strncmp(ptr, "exit", spc) == 0 && "exit"[spc] == '\0') {
